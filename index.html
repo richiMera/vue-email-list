@@ -15,7 +15,7 @@
   <body>
     <div id="root">
       <ul class="normal_list">
-        <li v-for="mail in mails">{{mail}}</li>
+        <li v-if="mails.length == 10 " v-for="mail in mails">{{mail}}</li>
       </ul>
     </div>
 
