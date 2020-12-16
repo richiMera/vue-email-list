@@ -15,20 +15,24 @@ var app = new Vue({
 
   },
   mounted: function() {
-    axios
-      .get('https://flynn.boolean.careers/exercises/api/random/mail')
-      .then(function (result) {
+    var self = this;
+    for (var i = 0; i < 10; i++) {
 
-       // app.mails = result.data.response
+      axios
+        .get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then(function (result) {
 
-        // var self = this;
 
-        var randomMail = result.data.response
-        for (var i = 0; i < 10; i++) {
 
-          app.mails.push(randomMail);
-        }
-        console.log(app.mails);
-      });
-  }
-});
+
+
+          var randomMail = result.data.response
+          self.mails.push(randomMail)
+
+        });
+
+    }
+
+
+    }
+  });
